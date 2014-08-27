@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+Dir.chdir File.expand_path('../../', __FILE__)
+
+require './lib/mensurable'
+require './lib/rubydoro/daemon'
+require './lib/rubydoro/pomodoro'
+require './lib/rubydoro'
+
+case ARGV[0]
+when 'start'
+  Rubydoro.start
+when 'stop'
+  Rubydoro.stop
+else
+  puts 'Usage: rubydoro <start|stop>'
+  exit 1
+end
