@@ -11,9 +11,9 @@ module Rubydoro
     end
 
     def run
-      wait worktime, " 🍅 pomodoro"
-      wait resttime, " 🏁 rest time", false
-      report " 😛 "
+      wait worktime, "  pomodoro"
+      wait resttime, "  rest time", false
+      report "  "
     end
 
     private
@@ -24,12 +24,12 @@ module Rubydoro
 
     def wait(time, message, tick = true)
       %x{notify-send "Beginning #{message}"}
-      while time.to_i > -62167208012 do 
+      while time.to_i > -62167208012 do
         play_tick if tick
         report("#{message}: #{time.strftime('%Mm%Ss')}")
         time = time - 1
         sleep 1
-      end  
+      end
     end
 
     def play_tick
