@@ -5,15 +5,15 @@ module Rubydoro
     attr_reader :worktime, :resttime, :statusfile
 
     def initialize()
-      @worktime = Time.new(0) + 15.minutes
+      @worktime = Time.new(0) + 25.minutes
       @resttime = Time.new(0) + 5.minutes
       @statusfile = File.expand_path('../../../log/rubydoro.status', __FILE__)
     end
 
     def run
-      wait worktime, "  pomodoro"
-      wait resttime, "  rest time", false
-      report "  "
+      wait worktime, " pomodoro"
+      wait resttime, " rest time", false
+      report ""
     end
 
     private
